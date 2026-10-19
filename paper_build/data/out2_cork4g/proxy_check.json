@@ -1,0 +1,18 @@
+{
+ "other": {
+  "samples": 117707,
+  "median_DL_in_episode": 2315.0,
+  "median_DL_outside": 11329.0,
+  "share_DL_below_1Mbps_in_episode": 0.32706817268628063,
+  "share_DL_below_1Mbps_outside": 0.09897385319175725
+ },
+ "onsets": {
+  "other": {
+   "n": 1906,
+   "median_pre": 6916.5,
+   "median_post": 5536.0,
+   "median_ratio": 0.9225032283360112,
+   "share_drop_50pct": 0.17366211962224554
+  }
+ }
+}

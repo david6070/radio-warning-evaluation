@@ -1,0 +1,465 @@
+{
+ "cork5g": {
+  "info": {
+   "rows_total": 180743,
+   "rows_missing_rsrp_cqi": 16008,
+   "rows_used": 164735,
+   "links": 82,
+   "segments": 131,
+   "observed_h": 50.69111111111111,
+   "degraded_share": 0.017755789601481168,
+   "episodes": 654,
+   "onsets": 528,
+   "links_with_onset": 67
+  },
+  "acct": [
+   {
+    "H": 10.0,
+    "eligible": 160089,
+    "labelled": 159090,
+    "censored": 999,
+    "eligible_h": 49.272777777777776,
+    "exposure_h": 49.004444444444445,
+    "positive_rate": 0.0262304356024891,
+    "warnable_onsets": 521,
+    "all_onsets": 528
+   },
+   {
+    "H": 30.0,
+    "eligible": 160089,
+    "labelled": 157246,
+    "censored": 2843,
+    "eligible_h": 49.272777777777776,
+    "exposure_h": 48.43638888888889,
+    "positive_rate": 0.059976088421963,
+    "warnable_onsets": 521,
+    "all_onsets": 528
+   },
+   {
+    "H": 60.0,
+    "eligible": 160089,
+    "labelled": 154633,
+    "censored": 5456,
+    "eligible_h": 49.272777777777776,
+    "exposure_h": 47.63305555555556,
+    "positive_rate": 0.0949991269651368,
+    "warnable_onsets": 521,
+    "all_onsets": 528
+   }
+  ]
+ },
+ "cork4g": {
+  "info": {
+   "rows_total": 169214,
+   "rows_missing_rsrp_cqi": 51507,
+   "rows_used": 117707,
+   "links": 133,
+   "segments": 261,
+   "observed_h": 36.27444444444444,
+   "degraded_share": 0.1902945449293585,
+   "episodes": 2657,
+   "onsets": 1906,
+   "links_with_onset": 119
+  },
+  "acct": [
+   {
+    "H": 10.0,
+    "eligible": 94749,
+    "labelled": 93805,
+    "censored": 944,
+    "eligible_h": 29.165277777777774,
+    "exposure_h": 28.914444444444445,
+    "positive_rate": 0.1489792654975747,
+    "warnable_onsets": 1833,
+    "all_onsets": 1906
+   },
+   {
+    "H": 30.0,
+    "eligible": 94749,
+    "labelled": 92474,
+    "censored": 2275,
+    "eligible_h": 29.165277777777774,
+    "exposure_h": 28.49833333333333,
+    "positive_rate": 0.3079460172589052,
+    "warnable_onsets": 1833,
+    "all_onsets": 1906
+   },
+   {
+    "H": 60.0,
+    "eligible": 94749,
+    "labelled": 91035,
+    "censored": 3714,
+    "eligible_h": 29.165277777777774,
+    "exposure_h": 28.054166666666667,
+    "positive_rate": 0.4435436919865985,
+    "warnable_onsets": 1833,
+    "all_onsets": 1906
+   }
+  ]
+ },
+ "manaus": {
+  "info": {
+   "rows_total": 167479,
+   "rows_missing_rsrp_cqi": 0,
+   "rows_used": 167479,
+   "links": 1033,
+   "segments": 5419,
+   "observed_h": 184.50472222222223,
+   "degraded_share": 0.13041635070665575,
+   "episodes": 2738,
+   "onsets": 1248,
+   "links_with_onset": 169
+  },
+  "acct": [
+   {
+    "H": 10.0,
+    "eligible": 107175,
+    "labelled": 103596,
+    "censored": 3579,
+    "eligible_h": 111.52638888888887,
+    "exposure_h": 109.91833333333334,
+    "positive_rate": 0.0381288852851461,
+    "warnable_onsets": 756,
+    "all_onsets": 1248
+   },
+   {
+    "H": 30.0,
+    "eligible": 107175,
+    "labelled": 99036,
+    "censored": 8139,
+    "eligible_h": 111.52638888888887,
+    "exposure_h": 104.84777777777778,
+    "positive_rate": 0.0895431964134254,
+    "warnable_onsets": 883,
+    "all_onsets": 1248
+   },
+   {
+    "H": 60.0,
+    "eligible": 107175,
+    "labelled": 94079,
+    "censored": 13096,
+    "eligible_h": 111.52638888888887,
+    "exposure_h": 98.45055555555555,
+    "positive_rate": 0.1384474749944196,
+    "warnable_onsets": 883,
+    "all_onsets": 1248
+   }
+  ]
+ },
+ "budget": [
+  {
+   "D": "cork4g",
+   "model": "joint_margin",
+   "median": 0.71,
+   "p90": 0.87,
+   "mx": 1.25
+  },
+  {
+   "D": "cork4g",
+   "model": "logreg",
+   "median": 1.05,
+   "p90": 2.21,
+   "mx": 4.43
+  },
+  {
+   "D": "cork4g",
+   "model": "logreg_now",
+   "median": 1.25,
+   "p90": 2.1,
+   "mx": 3.85
+  },
+  {
+   "D": "cork4g",
+   "model": "logreg_rsrp",
+   "median": 1.19,
+   "p90": 2.39,
+   "mx": 4.84
+  },
+  {
+   "D": "cork4g",
+   "model": "lstm",
+   "median": 1.38,
+   "p90": 2.03,
+   "mx": 5.9
+  },
+  {
+   "D": "cork4g",
+   "model": "random",
+   "median": 0.81,
+   "p90": 1.21,
+   "mx": 2.14
+  },
+  {
+   "D": "cork4g",
+   "model": "rsrp_ewma",
+   "median": 1.9,
+   "p90": 3.71,
+   "mx": 4.62
+  },
+  {
+   "D": "cork4g",
+   "model": "rsrp_now",
+   "median": 1.43,
+   "p90": 2.21,
+   "mx": 3.35
+  },
+  {
+   "D": "cork4g",
+   "model": "rsrp_trend",
+   "median": 1.07,
+   "p90": 1.31,
+   "mx": 1.76
+  },
+  {
+   "D": "cork4g",
+   "model": "transformer",
+   "median": 1.14,
+   "p90": 2.17,
+   "mx": 14.83
+  },
+  {
+   "D": "cork4g",
+   "model": "xgb",
+   "median": 0.97,
+   "p90": 1.45,
+   "mx": 3.56
+  },
+  {
+   "D": "cork5g",
+   "model": "joint_margin",
+   "median": 0.55,
+   "p90": 0.7,
+   "mx": 0.72
+  },
+  {
+   "D": "cork5g",
+   "model": "logreg",
+   "median": 0.85,
+   "p90": 1.27,
+   "mx": 2.1
+  },
+  {
+   "D": "cork5g",
+   "model": "logreg_now",
+   "median": 0.97,
+   "p90": 1.08,
+   "mx": 1.2
+  },
+  {
+   "D": "cork5g",
+   "model": "logreg_rsrp",
+   "median": 0.81,
+   "p90": 0.98,
+   "mx": 1.47
+  },
+  {
+   "D": "cork5g",
+   "model": "lstm",
+   "median": 1.12,
+   "p90": 1.92,
+   "mx": 3.53
+  },
+  {
+   "D": "cork5g",
+   "model": "random",
+   "median": 0.52,
+   "p90": 0.81,
+   "mx": 1.03
+  },
+  {
+   "D": "cork5g",
+   "model": "rsrp_ewma",
+   "median": 1.4,
+   "p90": 1.89,
+   "mx": 2.12
+  },
+  {
+   "D": "cork5g",
+   "model": "rsrp_now",
+   "median": 1.22,
+   "p90": 1.82,
+   "mx": 2.52
+  },
+  {
+   "D": "cork5g",
+   "model": "rsrp_trend",
+   "median": 0.77,
+   "p90": 0.99,
+   "mx": 1.01
+  },
+  {
+   "D": "cork5g",
+   "model": "transformer",
+   "median": 1.11,
+   "p90": 1.73,
+   "mx": 2.9
+  },
+  {
+   "D": "cork5g",
+   "model": "xgb",
+   "median": 0.83,
+   "p90": 1.2,
+   "mx": 1.61
+  },
+  {
+   "D": "manaus",
+   "model": "joint_margin",
+   "median": 0.77,
+   "p90": 1.17,
+   "mx": 1.49
+  },
+  {
+   "D": "manaus",
+   "model": "logreg",
+   "median": 1.36,
+   "p90": 2.11,
+   "mx": 3.71
+  },
+  {
+   "D": "manaus",
+   "model": "logreg_now",
+   "median": 1.07,
+   "p90": 1.46,
+   "mx": 1.89
+  },
+  {
+   "D": "manaus",
+   "model": "logreg_rsrp",
+   "median": 0.88,
+   "p90": 1.76,
+   "mx": 2.35
+  },
+  {
+   "D": "manaus",
+   "model": "lstm",
+   "median": 1.58,
+   "p90": 3.93,
+   "mx": 15.14
+  },
+  {
+   "D": "manaus",
+   "model": "random",
+   "median": 0.46,
+   "p90": 0.74,
+   "mx": 0.81
+  },
+  {
+   "D": "manaus",
+   "model": "rsrp_ewma",
+   "median": 1.52,
+   "p90": 4.21,
+   "mx": 6.71
+  },
+  {
+   "D": "manaus",
+   "model": "rsrp_now",
+   "median": 1.06,
+   "p90": 2.37,
+   "mx": 4.01
+  },
+  {
+   "D": "manaus",
+   "model": "rsrp_trend",
+   "median": 1.2,
+   "p90": 2.81,
+   "mx": 3.79
+  },
+  {
+   "D": "manaus",
+   "model": "transformer",
+   "median": 1.48,
+   "p90": 3.59,
+   "mx": 6.33
+  },
+  {
+   "D": "manaus",
+   "model": "xgb",
+   "median": 0.75,
+   "p90": 2.81,
+   "mx": 6.62
+  }
+ ],
+ "budget_pooled": {
+  "cork4g": {
+   "median": 1.14,
+   "p90": 2.12,
+   "mx": 14.83
+  },
+  "cork5g": {
+   "median": 0.94,
+   "p90": 1.56,
+   "mx": 3.53
+  },
+  "manaus": {
+   "median": 1.07,
+   "p90": 3.12,
+   "mx": 15.14
+  }
+ },
+ "proxy": {
+  "cork5g": {
+   "amazon": {
+    "samples": 60288,
+    "median_DL_in_episode": 276.0,
+    "median_DL_outside": 275.0,
+    "share_DL_below_1Mbps_in_episode": 0.7794533459000943,
+    "share_DL_below_1Mbps_outside": 0.6672970098097152
+   },
+   "download": {
+    "samples": 35060,
+    "median_DL_in_episode": 4742.0,
+    "median_DL_outside": 17369.5,
+    "share_DL_below_1Mbps_in_episode": 0.18019480519480519,
+    "share_DL_below_1Mbps_outside": 0.11096272209963999
+   },
+   "netflix": {
+    "samples": 69387,
+    "median_DL_in_episode": 0.0,
+    "median_DL_outside": 0.0,
+    "share_DL_below_1Mbps_in_episode": 0.9158653846153846,
+    "share_DL_below_1Mbps_outside": 0.9381411526438603
+   },
+   "onsets": {
+    "amazon": {
+     "n": 164,
+     "median_pre": 277.0,
+     "median_post": 277.0,
+     "median_ratio": 1.0,
+     "share_drop_50pct": 0.17682926829268292
+    },
+    "download": {
+     "n": 159,
+     "median_pre": 8575.5,
+     "median_post": 7843.0,
+     "median_ratio": 0.9514380431860945,
+     "share_drop_50pct": 0.1949685534591195
+    },
+    "netflix": {
+     "n": 205,
+     "median_pre": 0.0,
+     "median_post": 0.0,
+     "median_ratio": 1.0,
+     "share_drop_50pct": 0.16097560975609757
+    }
+   }
+  },
+  "cork4g": {
+   "other": {
+    "samples": 117707,
+    "median_DL_in_episode": 2315.0,
+    "median_DL_outside": 11329.0,
+    "share_DL_below_1Mbps_in_episode": 0.32706817268628063,
+    "share_DL_below_1Mbps_outside": 0.09897385319175725
+   },
+   "onsets": {
+    "other": {
+     "n": 1906,
+     "median_pre": 6916.5,
+     "median_post": 5536.0,
+     "median_ratio": 0.9225032283360112,
+     "share_drop_50pct": 0.17366211962224554
+    }
+   }
+  }
+ }
+}

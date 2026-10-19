@@ -1,0 +1,12 @@
+{
+ "rows_total": 180743,
+ "rows_missing_rsrp_cqi": 16008,
+ "rows_used": 164735,
+ "links": 82,
+ "segments": 131,
+ "observed_h": 50.69111111111111,
+ "degraded_share": 0.007260145081494521,
+ "episodes": 294,
+ "onsets": 248,
+ "links_with_onset": 52
+}

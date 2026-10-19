@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper."
+title: "Radio degradation warning: evaluation as preventive actions under a false-alarm budget"
+authors:
+  - family-names: Daniel
+    given-names: David Olutunde
+    affiliation: "The University of Texas at Dallas"
+version: "1.0"
+date-released: 2026-10-19
+repository-code: "https://github.com/david6070/radio-warning-evaluation"
+license: MIT

@@ -1,0 +1,3 @@
+1de7163f9a2411fa57886e246d6580e9dde165f3202a5649da396878c22284d1  /work/dod220001/tmlcn/df_anonymizedManaus.csv
+45e95f8a6934da230067803983b45b20e5dfb0179431d43902c8193db770e6bd  cork/LTE_Dataset.zip
+abc729d696b5e0ba34a9c6ed35a851f2868d2b5071be5efb8a49691c23bb1a9b  cork/5g_repo/5G-production-dataset.zip

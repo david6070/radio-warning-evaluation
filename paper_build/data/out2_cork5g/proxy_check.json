@@ -1,0 +1,46 @@
+{
+ "amazon": {
+  "samples": 60288,
+  "median_DL_in_episode": 276.0,
+  "median_DL_outside": 275.0,
+  "share_DL_below_1Mbps_in_episode": 0.7794533459000943,
+  "share_DL_below_1Mbps_outside": 0.6672970098097152
+ },
+ "download": {
+  "samples": 35060,
+  "median_DL_in_episode": 4742.0,
+  "median_DL_outside": 17369.5,
+  "share_DL_below_1Mbps_in_episode": 0.18019480519480519,
+  "share_DL_below_1Mbps_outside": 0.11096272209963999
+ },
+ "netflix": {
+  "samples": 69387,
+  "median_DL_in_episode": 0.0,
+  "median_DL_outside": 0.0,
+  "share_DL_below_1Mbps_in_episode": 0.9158653846153846,
+  "share_DL_below_1Mbps_outside": 0.9381411526438603
+ },
+ "onsets": {
+  "amazon": {
+   "n": 164,
+   "median_pre": 277.0,
+   "median_post": 277.0,
+   "median_ratio": 1.0,
+   "share_drop_50pct": 0.17682926829268292
+  },
+  "download": {
+   "n": 159,
+   "median_pre": 8575.5,
+   "median_post": 7843.0,
+   "median_ratio": 0.9514380431860945,
+   "share_drop_50pct": 0.1949685534591195
+  },
+  "netflix": {
+   "n": 205,
+   "median_pre": 0.0,
+   "median_post": 0.0,
+   "median_ratio": 1.0,
+   "share_drop_50pct": 0.16097560975609757
+  }
+ }
+}

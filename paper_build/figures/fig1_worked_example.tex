@@ -1,0 +1,23 @@
+\documentclass[border=4pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,xcolor,tikz}
+\usetikzlibrary{arrows.meta,decorations.pathreplacing}
+\begin{document}
+\begin{tikzpicture}[x=0.16cm,y=0.5cm,font=\footnotesize]
+\draw[-{Stealth[length=2mm]}] (0,0) -- (62,0) node[right]{time (min)};
+\foreach \x in {0,10,20,30,40,50,60} \draw (\x,0.15) -- (\x,-0.15) node[below]{\x};
+\fill[red!25] (14,0.2) rectangle (17,1.0); \node[red!60!black] at (15.5,1.35) {$o_1$};
+\fill[red!25] (33,0.2) rectangle (35,1.0); \node[red!60!black] at (34,1.35) {$o_2$};
+\fill[red!25] (52,0.2) rectangle (56,1.0); \node[red!60!black] at (54,1.35) {$o_3$};
+\node[anchor=east] at (-0.5,0.6) {episodes};
+\fill[blue!35] (12.5,1.9) rectangle (14,2.5);
+\fill[blue!35] (24,1.9) rectangle (25.5,2.5);
+\fill[blue!35] (41,1.9) rectangle (42,2.5);
+\fill[blue!35] (51.7,1.9) rectangle (52,2.5);
+\node[anchor=east] at (-0.5,2.2) {alarm};
+\foreach \x/\c in {12.5/F,13.5/T,24/F,25/F,41/F,51.7/T}
+  {\draw[-{Stealth[length=1.6mm]},thick] (\x,3.4) -- (\x,2.6); \node at (\x,3.75) {\c};}
+\node[anchor=east] at (-0.5,3.2) {actions};
+\node[gray] at (34,2.2) {missed};
+\end{tikzpicture}
+\end{document}

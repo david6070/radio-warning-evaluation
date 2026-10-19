@@ -1,0 +1,19 @@
+PASS past measurements/imputations unaffected by future changes
+PASS causal eligibility (conf_ep) of past samples unaffected by future changes
+PASS conf_ep equals 'last min_run samples degraded' exactly
+PASS always-off: DR = 0 and FAR = 0  ({'DR': np.float64(0.0), 'FAR': np.float64(0.0), 'duty': np.float64(0.0), 'actions_per_h': np.float64(0.0), 'median_lead': nan, 'lead_ge_10s': np.float64(0.0), 'lead_ge_30s': np.float64(0.0), 'onsets': 1833})
+PASS always-on: DR close to 1  (DR 1.000)
+PASS always-on: FAR is large (not free)  (FAR 101.9/h, duty 1.00)
+PASS always-on: every lead <= H
+PASS always-on: DR exactly 1 (warning held between samples)  (DR 1.0000)
+PASS oracle (score = label): FAR = 0 and DR close to 1  ({'DR': np.float64(1.0), 'FAR': np.float64(0.0), 'duty': np.float64(0.30766906446770764), 'actions_per_h': np.float64(85.05760570793613), 'median_lead': np.float64(25.0), 'lead_ge_10s': np.float64(0.889798145117294), 'lead_ge_30s': np.float64(0.309328968903437), 'onsets': 1833})
+     random score, top 1% alarmed: DR 0.190, FAR 21.76/h, duty 0.010
+     random score, top 5% alarmed: DR 0.639, FAR 106.88/h, duty 0.050
+PASS constant score on a long link is charged for false actions  ({'DR': np.float64(1.0), 'FAR': np.float64(100.93457943925233), 'duty': np.float64(1.0), 'actions_per_h': np.float64(241.1214953271028), 'median_lead': np.float64(18.0), 'lead_ge_10s': np.float64(0.8095238095238095), 'lead_ge_30s': np.float64(0.09523809523809523), 'onsets': 21})
+PASS boundary: onset at segment end is warnable  (warnable 1)
+PASS boundary: always-on detects it and its true action is counted  (det [ True], true actions 1)
+PASS boundary: oracle detects it with no false or censored-true actions  (actions 1, false 0)
+PASS calibration search evaluates every candidate threshold  (51 candidates)
+     FAR non-monotone in tau on this data: True
+
+ALL CHECKS PASSED

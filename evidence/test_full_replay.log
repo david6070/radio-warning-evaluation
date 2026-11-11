@@ -1,0 +1,4 @@
+H=10: 5055 eligible, 507 censored, 122 warnable onsets
+H=30: 5055 eligible, 1249 censored, 122 warnable onsets
+H=60: 5055 eligible, 1983 censored, 122 warnable onsets
+PASS: full causal replay equals labelled-only evaluation in 108 comparisons

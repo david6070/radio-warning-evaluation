@@ -199,8 +199,12 @@ def main():
     ap.add_argument("--H", type=float, nargs="+", default=[10, 30, 60]); ap.add_argument("--B", type=int, default=1000)
     ap.add_argument("--rsrp_thr", type=float, default=-100); ap.add_argument("--cqi_thr", type=float, default=7)
     ap.add_argument("--min_run", type=int, default=2); ap.add_argument("--W", type=int, default=20)
+    ap.add_argument("--event", default="rc", choices=["rc", "tput_floor", "tput_drop"])
+    ap.add_argument("--dl_floor", type=float, default=1000.0); ap.add_argument("--drop_ratio", type=float, default=0.5)
+    ap.add_argument("--drop_ref", type=int, default=10)
     a = ap.parse_args()
-    cfg = N.Cfg(rsrp_thr=a.rsrp_thr, cqi_thr=a.cqi_thr, min_run=a.min_run, W=a.W)
+    cfg = N.Cfg(rsrp_thr=a.rsrp_thr, cqi_thr=a.cqi_thr, min_run=a.min_run, W=a.W,
+                event=a.event, dl_floor=a.dl_floor, drop_ratio=a.drop_ratio, drop_ref=a.drop_ref)
     rng = np.random.default_rng(20261019)
     df = N.episodes(N.load(a.input, cfg), cfg)
     info, acc_H = N.summary(df, a.H, cfg)

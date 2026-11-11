@@ -12,10 +12,11 @@ points), not a single frozen policy at exactly that rate.
 """
 import argparse, numpy as np, pandas as pd
 
-ap = argparse.ArgumentParser(); ap.add_argument("--perlink", required=True); ap.add_argument("--out", required=True)
+ap = argparse.ArgumentParser(); ap.add_argument("--perlink", required=True, nargs="+"); ap.add_argument("--out", required=True)
 ap.add_argument("--rates", type=float, nargs="+", default=[1, 2, 4]); ap.add_argument("--B", type=int, default=2000)
-ap.add_argument("--ref", default="rsrp_now"); a = ap.parse_args()
-P = pd.read_csv(a.perlink)
+ap.add_argument("--ref", default="rsrp_now"); ap.add_argument("--name", default="",
+    help="suffix for the output file, e.g. _ref_trend (default: none = main file)"); a = ap.parse_args()
+P = pd.concat([pd.read_csv(p) for p in a.perlink], ignore_index=True)
 rng = np.random.default_rng(20261019)
 
 
@@ -65,6 +66,8 @@ for H, g in P.groupby("H"):
             est[(m, r)] = (np.nanmean(vals) if np.isfinite(vals).any() else np.nan, int(np.isfinite(vals).sum()), len(seeds))
             with np.errstate(all="ignore"):
                 boot[(m, r)] = np.nanmean(np.vstack(bvals), axis=0)
+    if a.ref not in models:
+        print(f"H={H}: reference {a.ref} has no per-link rows; skipped"); continue
     for m in models:
         for r in a.rates:
             e, n_ok, n_s = est[(m, r)]; b = boot[(m, r)]; ref = boot[(a.ref, r)]
@@ -76,6 +79,6 @@ for H, g in P.groupby("H"):
                              dDR_lo=np.percentile(d[good], 2.5) if good.sum() > 50 else np.nan,
                              dDR_hi=np.percentile(d[good], 97.5) if good.sum() > 50 else np.nan,
                              boot_support=float(good.mean())))
-R = pd.DataFrame(rows); tag = a.perlink.split("eval2_perlink_")[1].replace(".csv.gz", "")
-R.to_csv(f"{a.out}/eval2_matched_boot_{tag}.csv", index=False)
+R = pd.DataFrame(rows); tag = a.perlink[0].split("eval2_perlink_")[1].replace(".csv.gz", "")
+R.to_csv(f"{a.out}/eval2_matched_boot_{tag}{a.name}.csv", index=False)
 pd.set_option("display.width", 200); print(R[R.rate == 2].round(3).to_string(index=False))

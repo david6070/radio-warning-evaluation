@@ -35,9 +35,22 @@ class Cfg:
     min_clear: int = 3
     gap_s: float = 30.0
     W: int = 20
+    event: str = "rc"          # "rc": RSRP < rsrp_thr and CQI < cqi_thr (main definition)
+                               # "tput_floor": DL_bitrate < dl_floor (kbit/s)
+                               # "tput_drop": DL_bitrate < drop_ratio x median of the previous drop_ref samples
+    dl_floor: float = 1000.0
+    drop_ratio: float = 0.5
+    drop_ref: int = 10
 
     def tag(self):
-        return f"r{-self.rsrp_thr:g}_c{self.cqi_thr:g}_m{self.min_run}_w{self.W}"
+        base = f"r{-self.rsrp_thr:g}_c{self.cqi_thr:g}_m{self.min_run}_w{self.W}"
+        if self.event == "rc":
+            return base
+        if self.event == "tput_floor":
+            return base + f"_tfloor{self.dl_floor:g}"
+        if self.event == "tput_drop":
+            return base + f"_tdrop{self.drop_ratio:g}x{self.drop_ref}"
+        raise ValueError(self.event)
 
 
 def load(path, cfg=Cfg()):
@@ -73,11 +86,29 @@ def load(path, cfg=Cfg()):
     return df
 
 
+def degraded(df, cfg=Cfg()):
+    """Per-measurement degradation indicator for the configured event definition.
+    The throughput events use only delivered downlink throughput (independent of
+    RSRP and CQI); a missing throughput value is not degraded."""
+    if cfg.event == "rc":
+        return ((df["RSRP"] < cfg.rsrp_thr) & (df["CQI"] < cfg.cqi_thr)).to_numpy()
+    if "DL_bitrate" not in df.columns:
+        raise ValueError("throughput event needs a DL_bitrate column (prep_cork2.py keeps it)")
+    dl = pd.to_numeric(df["DL_bitrate"], errors="coerce")
+    if cfg.event == "tput_floor":
+        return (dl < cfg.dl_floor).fillna(False).to_numpy()
+    if cfg.event == "tput_drop":
+        ref = dl.groupby(df["seg"]).transform(
+            lambda v: v.shift(1).rolling(cfg.drop_ref, min_periods=cfg.drop_ref).median())
+        return ((dl < cfg.drop_ratio * ref) & (ref > 0)).fillna(False).to_numpy()
+    raise ValueError(cfg.event)
+
+
 def episodes(df, cfg=Cfg()):
     """Retrospective ground truth: in_ep (episode membership) and onset. Also
     the CAUSAL state conf_ep: the last min_run samples (up to and including t)
     are all degraded, i.e. an episode is observably under way at t."""
-    deg = ((df["RSRP"] < cfg.rsrp_thr) & (df["CQI"] < cfg.cqi_thr)).to_numpy()
+    deg = degraded(df, cfg)
     seg = df["seg"].to_numpy()
     in_ep = np.zeros(len(df), bool); onset = np.zeros(len(df), bool); conf = np.zeros(len(df), bool)
     bounds = np.r_[0, np.flatnonzero(np.diff(seg)) + 1, len(df)]

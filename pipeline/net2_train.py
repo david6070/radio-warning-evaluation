@@ -131,8 +131,12 @@ def main():
     ap.add_argument("--epochs", type=int, default=20); ap.add_argument("--out", default="out2")
     ap.add_argument("--rsrp_thr", type=float, default=-100); ap.add_argument("--cqi_thr", type=float, default=7)
     ap.add_argument("--min_run", type=int, default=2); ap.add_argument("--W", type=int, default=20)
+    ap.add_argument("--event", default="rc", choices=["rc", "tput_floor", "tput_drop"])
+    ap.add_argument("--dl_floor", type=float, default=1000.0); ap.add_argument("--drop_ratio", type=float, default=0.5)
+    ap.add_argument("--drop_ref", type=int, default=10)
     a = ap.parse_args(); os.makedirs(a.out, exist_ok=True); t0 = time.time()
-    cfg = N.Cfg(rsrp_thr=a.rsrp_thr, cqi_thr=a.cqi_thr, min_run=a.min_run, W=a.W)
+    cfg = N.Cfg(rsrp_thr=a.rsrp_thr, cqi_thr=a.cqi_thr, min_run=a.min_run, W=a.W,
+                event=a.event, dl_floor=a.dl_floor, drop_ratio=a.drop_ratio, drop_ref=a.drop_ref)
     df = N.episodes(N.load(a.input, cfg), cfg); d0 = N.build(df, a.H, cfg)
     lab = d0["y"] >= 0
     d = {k: (v[lab] if isinstance(v, np.ndarray) and len(v) == len(lab) else v) for k, v in d0.items()}
